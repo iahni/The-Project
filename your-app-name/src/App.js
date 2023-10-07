@@ -1,22 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, {useState} from 'react';
 import Home from './Home';
+import Products from './Products';
 import AddProducts from './AddProducts';
+import Navigation from './Navigation';
+
+
 function App()
 {
+  const [currentPage, setCurrentPage]=
+  useState('home');
+
+  const handleLinkClick = page => {
+    setCurrentPage(page);
+  };
+  let pageContent;
+  if(currentPage === 'home') {
+    pageContent = <Home/>;
+}
+else if (currentPage === 'products'){
+  pageContent = <AddProducts/>;
+}
   return (
-    <Router>
-      <div>
-        <h1>
-          my app
-        </h1>
-      
-          <Route exact path = "/" component = {Home}/>
-          <Route path = "/add-product"
-          component = {AddProducts}/>
-    
-      </div>
-    </Router>
+    <div>
+
+      <Navigation onLinkClick={handleLinkClick}/>
+      {pageContent}
+  </div>
+  
   );
 }
 
