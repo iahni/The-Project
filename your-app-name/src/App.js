@@ -1,9 +1,9 @@
 import React from 'react';
-import {BrowserRouter as Router,Switch, Route} from ' react-router-dom';
+import {Switch} from 'react-router-dom';
 import Home from './Home';
-import AddProduct from './AddProducts';
-
-function App(){
+import AddProducts from './AddProducts';
+function App()
+{
   return (
     <Router>
       <div>
@@ -13,7 +13,7 @@ function App(){
         <Switch>
           <Route exact path = "/" component = {Home}/>
           <Route path = "/add-product"
-          component = {AddProduct}/>
+          component = {AddProducts}/>
         </Switch>
       </div>
     </Router>
