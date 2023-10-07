@@ -25,4 +25,4 @@ useEffect(() =>
     );
 }
  
-export default products;
+export default Products;
