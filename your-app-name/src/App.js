@@ -18,12 +18,16 @@ function App()
     pageContent = <Home/>;
 }
 else if (currentPage === 'products'){
-  pageContent = <AddProducts/>;
+  pageContent = <Products/>;
 }
+else if (currentPage === 'add-products'){
+  pageContent= <AddProducts/>
+};
+
   return (
     <div>
-
-      <Navigation onLinkClick={handleLinkClick}/>
+<Navigation 
+onLinkClick={handleLinkClick}/>
       {pageContent}
   </div>
   
