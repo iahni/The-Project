@@ -49,3 +49,4 @@ body:JSON.stringify(newProduct),
  }
  
  export default AddProduct;
+ 
