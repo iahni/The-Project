@@ -1,4 +1,5 @@
 import React, { useEffect,useState} from 'react';
+import './index.css'
 
 function Products()
 {
@@ -14,16 +15,16 @@ useEffect(() =>
  return  ( 
   <div>
  <h2>Products</h2>
- <ul>
+ <div className='product'>
  {products.map((products) => (
-        <li key ={products.id}>
+        <div className= 'products'key ={products.id}>
            <h2> {products.title} </h2>
            <p> {products.price}</p>
            <p> {products.description}</p>
            <img src= {products.image} alt ={products.title}/>
-           </li>
+           </div>
         ))}
-    </ul>
+    </div>
     </div> 
     );
 }
