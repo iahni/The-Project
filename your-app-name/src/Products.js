@@ -15,11 +15,11 @@ useEffect(() =>
   <div>
  <h2>Products</h2>
  <ul>
- {products.map((product) => (
-        <li key ={product.id}>
-           <h2> {product.title} </h2>
-           <p> {product.price}</p>
-           <p> {product.description}</p>
+ {products.map((products) => (
+        <li key ={products.id}>
+           <h2> {products.title} </h2>
+           <p> {products.price}</p>
+           <p> {products.description}</p>
            </li>
         ))}
     </ul>
