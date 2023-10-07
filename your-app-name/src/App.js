@@ -8,12 +8,12 @@ function App(){
     <Router>
       <div>
         <h1>
-          Messages App
+          my app
         </h1>
         <Switch>
           <Route exact path = "/" component = {Home}/>
-          <Route path = "/chat"
-          component = {Chat}/>
+          <Route path = "/add-product"
+          component = {AddProduct}/>
         </Switch>
       </div>
     </Router>
