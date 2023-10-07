@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useState} from "react";
 
-function About() {
-    return (
-        <div id="about">
-            <h2>About Me</h2>
-            <p>I made this</p>
-            <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-            <div>
-                <h3>Links</h3>
-                <a href="https://github.com/iahni">GitHub</a>
-                <a href="https://www.linkedin.com/in/liza/">Oh yea</a>
-            </div>
-        </div>
-    );
-}
-
-export default About;
+function AddProduct() {
+const [title, setTitle] = useState('');
+const [description, setDescription]
+= useState('');
+const handleSubmit = (e) => {
+    e.preventDefault();
+    const newProduct = {
+        title, description,
+    };
+    fetch("https://fakestoreapi.com/products",
+    {
+    method:"POST",
+    headers:{ "Content-Type": "application/json",
+},
+body:JSON.stringify(newProduct),
+})
+.then((response) => response.json())
+.then((data) => {
+    console.log ("New Product:",data);
+})
+.catch((error) => {
+    console.error("Error:",error);
+});
+ 
+};
+ 
+ return ( 
+    <form onSubmit = {handleSubmit}>
+        <label>
+        Title:
+        <input type = " text"
+        value = {title}
+        onChange = {(e) =>
+        setTitle(e.target.value)}/>
+        </label>
+        <br/>
+        <label>
+            Description:
+            <textarea value = {description} 
+            onChange={(e) =>
+            setDescription(e.target.value)}>
+            </textarea>
+        </label>
+        <br/> <button type="submit">Add Product</button>
+    </form>
+ );
+ }
+ 
+ export default AddProduct;

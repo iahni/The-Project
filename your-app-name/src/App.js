@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router,Switch, Route} from ' react-router-dom';
 import Home from './Home';
-import Chat from './Chat';
+import AddProduct from './AddProducts';
 
 function App(){
   return (
