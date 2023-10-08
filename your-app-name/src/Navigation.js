@@ -5,15 +5,15 @@ function Navigation({onLinkClick})
         return (
   <nav>
  <ul>
-     <li>
+     
   <button onClick={() =>
-  onLinkClick('home')}> Home</button></li>
-    <li>
+  onLinkClick('home')}> Home</button>
+    
 <button onClick={() =>
-  onLinkClick('products')}> Products</button></li>
-    <li>
+  onLinkClick('products')}> Products</button>
+    
  <button onClick={() =>
-  onLinkClick('add-products')}> Add Products </button></li>
+  onLinkClick('add-products')}> Add Products </button>
      </ul>
     </nav>
         );
