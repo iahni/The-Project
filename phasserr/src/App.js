@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import Home from './Home';
-import Products from './Products';
-import AddProducts from './AddProducts';
-import Navigation from './Navigation';
+import {Switch, Route} from 'react-router-dom';
+import Home from './components/Home';
+import Products from './components/Products';
+import AddProducts from './components/AddProducts';
+import Navigation from './components/Navigation';
+import Login from './components/Login';
 
 
 function App()
@@ -26,14 +28,30 @@ else if (currentPage === 'add-products'){
 
   return (
     <div>
+      
 <Navigation 
 onLinkClick={handleLinkClick}/>
       {pageContent}
+      <LoginApp/>
   </div>
   
   );
 }
-
+const App =()=>{
+  return (div>
+    <Switch>
+      <Route exact path="/"
+      Component={Home}/>
+      <Route path ="/Products"
+      Component={Products}/>
+      <Route path="/add-products"
+      Component={AddProducts}/>
+      <Route path = "/login"
+      Component={Login}/>
+      <Route path ="/navigation"
+      Component={Navigation}/>
+    </Switch>)
+}
 export default App;
 
 
