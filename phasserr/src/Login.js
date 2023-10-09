@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const LoginApp = () => {
+const Login = () => {
      const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
        const handleUsernameChange = (event) => { 
@@ -34,4 +34,4 @@ const LoginApp = () => {
             
             
         };
-         export default LoginApp
+         export default Login
