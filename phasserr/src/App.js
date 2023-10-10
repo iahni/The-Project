@@ -1,47 +1,25 @@
-import React, {useState} from 'react';
-
+import React from 'react';import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navigation from './Navigation';
 import Home from './Home';
 import Products from './Products';
 import AddProducts from './AddProducts';
-import Navigation from './Navigation';
 import Login from './Login';
 
+const App = () => {
+  return (
+    <Router>
+      <Navigation />
 
-function App()
-{
-  const [currentPage, setCurrentPage]=
-  useState('home');
-
-  const handleLinkClick = page => {
-    setCurrentPage(page);
-  };
-  let pageContent;
-  if(currentPage === 'home') {
-    pageContent = <Home/>;
-}
-else if (currentPage === 'products'){
-  pageContent = <Products/>;
-}
-else if (currentPage === 'add-products'){
-  pageContent= <AddProducts/>;
-}
-else if (currentPage === 'login'){
-  pageContent =<Login/>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/products" component={Products} />
+        <Route path="/add-products" component={AddProducts} />
+        <Route path="/login" component={Login} />
+      </Switch>
+    </Router>
+  );
 };
 
-  return (
-    <div>
-      
-<Navigation 
-onLinkClick={handleLinkClick}/>
-      {pageContent}
-      
-  </div>
-  
-  );
-}
-
-
 export default App;
-
 
