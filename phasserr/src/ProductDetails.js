@@ -1,52 +1,31 @@
-import React, { useState} from "react";
+import React, { useEffect, useState } from 'react'; 
+import { useParams } from 'react-router-dom';
 
-function AddProduct() {
-const [title, setTitle] = useState('');
-const [description, setDescription]
-= useState('');
-const handleSubmit = (e) => {
-    e.preventDefault();
-    const newProduct = {
-        title, description,
-    };
-    fetch("https://fakestoreapi.com/products",
-    {
-    method:"POST",
-    headers:{ "Content-Type": "application/json",
-},
-body:JSON.stringify(newProduct),
-})
-.then((response) => response.json())
-.then((data) => {
-    console.log ("New Product:",data);
-})
-.catch((error) => {
-    console.error("Error:",error);
-});
- 
-};
- 
- return ( 
-    <form onSubmit = {handleSubmit}>
-        <label>
-        Title:
-        <input type = " text"
-        value = {title}
-        onChange = {(e) =>
-        setTitle(e.target.value)}/>
-        </label>
-        <br/>
-        <label>
-            Description:
-            <textarea value = {description} 
-            onChange={(e) =>
-            setDescription(e.target.value)}>
-            </textarea>
-        </label>
-        <br/> <button type="submit">Add Product</button>
-    </form>
- );
- }
- 
- export default AddProduct;
- 
+
+ const ProductDetails = () =>
+ { const { id } = useParams(); 
+ const [product, setProduct] = useState(null);
+  useEffect(() => { fetch(`https://fakestoreapi.com/products/${id}`)
+   .then((response) => response.json())
+    .then((data) => setProduct(data))
+     .catch((error) => { console.error('Error fetching product details:', error);
+     });
+     },
+      [id]);
+       if (!product)
+        { 
+            return <div>
+                Loading
+            </div>;
+        }
+
+        return ( 
+            <div>
+                <h1>ProductDetails</h1>
+                <h2>{product.title}</h2>
+                <p>{product.description}</p>
+                <p>${product.price}</p>
+            </div>
+        );
+ };
+ export default ProductDetails;
